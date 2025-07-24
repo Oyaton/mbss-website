@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Application - Monsignor Bala Secondary School</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background-color: #d8a7a7 !important;
+    }
+    #site-header {
+      background-color: #87ceeb !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header id="site-header" class="fixed-top">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">MBSS</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="academics.html">Academics</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admissions.html">Admissions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="student-life.html">Student Life</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="alumni.html">Alumni</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gallery.html">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="news.html">News & Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main style="margin-top: 80px;">
+    <section class="py-5 bg-white">
+      <div class="container py-4">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="card border-0 shadow">
+              <div class="card-body p-5">
+                <div class="text-center mb-4">
+                  <img src="gallery/MBSS logo.jpg" alt="MBSS Logo" class="mb-3" style="height: 100px; width: auto;">
+                  <h4 class="fw-bold text-primary">Monsignor Bala Secondary School</h4>
+                  <p class="text-muted mb-2">P.O. BOX 149, Adjumani, Uganda</p>
+                  <p class="text-muted mb-2">
+                    <i class="fas fa-phone me-2"></i>+256 773 124 963 | 
+                    <i class="fas fa-envelope me-2 ms-3"></i>monsignorbalasecsch@gmail.com
+                  </p>
+                  <hr class="my-3">
+                  <h5 class="fw-bold text-secondary">Online Application Form</h5>
+                </div>
+                
+                <form id="onlineApplicationForm" enctype="multipart/form-data">
+                  <!-- Student Bio Data -->
+                  <div class="mb-4">
+                    <h5 class="fw-bold mb-3 text-primary">Student Bio Data</h5>
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <label for="firstName" class="form-label">First Name <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="firstName" name="firstName" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="lastName" class="form-label">Last Name <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="lastName" name="lastName" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="dateOfBirth" class="form-label">Date of Birth <span class="text-danger">*</span></label>
+                        <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="gender" class="form-label">Gender <span class="text-danger">*</span></label>
+                        <select class="form-select" id="gender" name="gender" required>
+                          <option value="">Select Gender</option>
+                          <option value="Male">Male</option>
+                          <option value="Female">Female</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="classOfStudy" class="form-label">Class of Study <span class="text-danger">*</span></label>
+                        <select class="form-select" id="classOfStudy" name="classOfStudy" required>
+                          <option value="">Select Class</option>
+                          <option value="S1">Senior 1 (S1)</option>
+                          <option value="S2">Senior 2 (S2)</option>
+                          <option value="S3">Senior 3 (S3)</option>
+                          <option value="S4">Senior 4 (S4)</option>
+                          <option value="S5">Senior 5 (S5)</option>
+                          <option value="S6">Senior 6 (S6)</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="nationality" class="form-label">Nationality <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="nationality" name="nationality" value="Ugandan" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="religion" class="form-label">Religion</label>
+                        <input type="text" class="form-control" id="religion" name="religion">
+                      </div>
+                      <div class="col-md-6">
+                        <label for="studentType" class="form-label">Student Type <span class="text-danger">*</span></label>
+                        <select class="form-select" id="studentType" name="studentType" required>
+                          <option value="">Select Type</option>
+                          <option value="Day Scholar">Day Scholar</option>
+                          <option value="Boarding Scholar">Boarding Scholar</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Guardian Information -->
+                  <div class="mb-4">
+                    <h5 class="fw-bold mb-3 text-primary">Guardian Information</h5>
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <label for="guardianFirstName" class="form-label">Guardian First Name <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="guardianFirstName" name="guardianFirstName" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="guardianLastName" class="form-label">Guardian Last Name <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="guardianLastName" name="guardianLastName" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="relationship" class="form-label">Relationship to Student <span class="text-danger">*</span></label>
+                        <select class="form-select" id="relationship" name="relationship" required>
+                          <option value="">Select Relationship</option>
+                          <option value="Father">Father</option>
+                          <option value="Mother">Mother</option>
+                          <option value="Guardian">Guardian</option>
+                          <option value="Uncle">Uncle</option>
+                          <option value="Aunt">Aunt</option>
+                          <option value="Grandparent">Grandparent</option>
+                          <option value="Other">Other</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="guardianEmail" class="form-label">Email Address <span class="text-danger">*</span></label>
+                        <input type="email" class="form-control" id="guardianEmail" name="guardianEmail" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="guardianPhone" class="form-label">Phone Number <span class="text-danger">*</span></label>
+                        <input type="tel" class="form-control" id="guardianPhone" name="guardianPhone" placeholder="+256 XXX XXX XXX" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="occupation" class="form-label">Occupation</label>
+                        <input type="text" class="form-control" id="occupation" name="occupation">
+                      </div>
+                      <div class="col-12">
+                        <label for="guardianAddress" class="form-label">Address <span class="text-danger">*</span></label>
+                        <textarea class="form-control" id="guardianAddress" name="guardianAddress" rows="2" required></textarea>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Previous School Information -->
+                  <div class="mb-4">
+                    <h5 class="fw-bold mb-3 text-primary">Previous School Information</h5>
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <label for="previousSchool" class="form-label">Previous School Name <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="previousSchool" name="previousSchool" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="schoolLocation" class="form-label">School Location <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="schoolLocation" name="schoolLocation" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="lastClassCompleted" class="form-label">Last Class Completed <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="lastClassCompleted" name="lastClassCompleted" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="yearOfCompletion" class="form-label">Year of Completion <span class="text-danger">*</span></label>
+                        <input type="number" class="form-control" id="yearOfCompletion" name="yearOfCompletion" min="2015" max="2025" required>
+                      </div>
+                      <div class="col-12">
+                        <label for="reasonForLeaving" class="form-label">Reason for Leaving <span class="text-danger">*</span></label>
+                        <textarea class="form-control" id="reasonForLeaving" name="reasonForLeaving" rows="3" required></textarea>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Document Upload Section -->
+                  <div class="mb-4">
+                    <h5 class="fw-bold mb-3 text-primary">Required Documents</h5>
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <label for="passportPhotos" class="form-label">Passport Photos (2 photos) <span class="text-danger">*</span></label>
+                        <input type="file" class="form-control" id="passportPhotos" name="passportPhotos" accept="image/*" multiple required>
+                        <div class="form-text">Upload 2 recent passport-sized photographs</div>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="birthCertificate" class="form-label">Birth Certificate <span class="text-danger">*</span></label>
+                        <input type="file" class="form-control" id="birthCertificate" name="birthCertificate" accept=".pdf,.jpg,.jpeg,.png" required>
+                        <div class="form-text">Upload copy of birth certificate</div>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="academicRecords" class="form-label">Academic Records <span class="text-danger">*</span></label>
+                        <input type="file" class="form-control" id="academicRecords" name="academicRecords" accept=".pdf,.jpg,.jpeg,.png" required>
+                        <div class="form-text">Upload previous school report cards</div>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="recommendationLetter" class="form-label">Recommendation Letter <span class="text-danger">*</span></label>
+                        <input type="file" class="form-control" id="recommendationLetter" name="recommendationLetter" accept=".pdf,.jpg,.jpeg,.png" required>
+                        <div class="form-text">Upload recommendation from previous school</div>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="medicalForm" class="form-label">Medical Form</label>
+                        <input type="file" class="form-control" id="medicalForm" name="medicalForm" accept=".pdf,.jpg,.jpeg,.png">
+                        <div class="form-text">Upload medical form (if available)</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Additional Information -->
+                  <div class="mb-4">
+                    <h5 class="fw-bold mb-3 text-primary">Additional Information</h5>
+                    <div class="row g-3">
+                      <div class="col-12">
+                        <label for="specialNeeds" class="form-label">Special Needs or Medical Conditions</label>
+                        <textarea class="form-control" id="specialNeeds" name="specialNeeds" rows="2" placeholder="Please describe any special needs, allergies, or medical conditions"></textarea>
+                      </div>
+                      <div class="col-12">
+                        <label for="extracurricular" class="form-label">Extracurricular Interests</label>
+                        <textarea class="form-control" id="extracurricular" name="extracurricular" rows="2" placeholder="Sports, music, drama, clubs, etc."></textarea>
+                      </div>
+                      <div class="col-12">
+                        <label for="additionalInfo" class="form-label">Additional Comments</label>
+                        <textarea class="form-control" id="additionalInfo" name="additionalInfo" rows="3" placeholder="Any additional information you would like to share"></textarea>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Declaration -->
+                  <div class="mb-4">
+                    <h5 class="fw-bold mb-3 text-primary">Declaration</h5>
+                    <div class="form-check mb-3">
+                      <input class="form-check-input" type="checkbox" id="declaration" name="declaration" required>
+                      <label class="form-check-label" for="declaration">
+                        I hereby declare that the information provided above is true and correct to the best of my knowledge. 
+                        I understand that any false information may lead to the rejection of this application. <span class="text-danger">*</span>
+                      </label>
+                    </div>
+                    <div class="form-check mb-3">
+                      <input class="form-check-input" type="checkbox" id="termsConditions" name="termsConditions" required>
+                      <label class="form-check-label" for="termsConditions">
+                        I agree to the school's terms and conditions and admission policies. <span class="text-danger">*</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- Submit Button -->
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-lg px-5" id="submitBtn">
+                      <i class="fas fa-paper-plane me-2"></i>Submit Application
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Form Alert -->
+  <div id="formAlert" class="position-fixed" style="top: 100px; right: 20px; z-index: 9999; min-width: 350px;"></div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-4">
+    <div class="container text-center">
+      <p>&copy; <span id="current-year">2025</span> Monsignor Bala Secondary School. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Online application form functionality
+    document.getElementById('onlineApplicationForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const submitBtn = document.getElementById('submitBtn');
+      const originalText = submitBtn.innerHTML;
+      
+      // Show loading state
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Submitting...';
+      submitBtn.disabled = true;
+      
+      // Validate file uploads
+      const requiredFiles = ['passportPhotos', 'birthCertificate', 'academicRecords', 'recommendationLetter'];
+      let filesValid = true;
+      
+      requiredFiles.forEach(fileId => {
+        const fileInput = document.getElementById(fileId);
+        if (!fileInput.files.length) {
+          filesValid = false;
+        }
+      });
+      
+      // Check passport photos count
+      const passportPhotos = document.getElementById('passportPhotos');
+      if (passportPhotos.files.length < 2) {
+        showFormAlert('Please upload at least 2 passport photos.', 'danger');
+        resetSubmitButton();
+        return;
+      }
+      
+      if (!filesValid) {
+        showFormAlert('Please upload all required documents.', 'danger');
+        resetSubmitButton();
+        return;
+      }
+      
+      // Collect form data
+      const formData = new FormData(this);
+      
+      // Create email content
+      const studentName = `${formData.get('firstName')} ${formData.get('lastName')}`;
+      const guardianName = `${formData.get('guardianFirstName')} ${formData.get('guardianLastName')}`;
+      
+      const emailSubject = `New Online Application - ${studentName}`;
+      const emailBody = `
+ONLINE APPLICATION SUBMISSION
+
+STUDENT INFORMATION:
+Name: ${studentName}
+Date of Birth: ${formData.get('dateOfBirth')}
+Gender: ${formData.get('gender')}
+Class of Study: ${formData.get('classOfStudy')}
+Nationality: ${formData.get('nationality')}
+Religion: ${formData.get('religion')}
+Student Type: ${formData.get('studentType')}
+
+GUARDIAN INFORMATION:
+Name: ${guardianName}
+Relationship: ${formData.get('relationship')}
+Email: ${formData.get('guardianEmail')}
+Phone: ${formData.get('guardianPhone')}
+Occupation: ${formData.get('occupation')}
+Address: ${formData.get('guardianAddress')}
+
+PREVIOUS SCHOOL:
+School Name: ${formData.get('previousSchool')}
+Location: ${formData.get('schoolLocation')}
+Last Class: ${formData.get('lastClassCompleted')}
+Year of Completion: ${formData.get('yearOfCompletion')}
+Reason for Leaving: ${formData.get('reasonForLeaving')}
+
+ADDITIONAL INFORMATION:
+Special Needs: ${formData.get('specialNeeds') || 'None'}
+Extracurricular Interests: ${formData.get('extracurricular') || 'None'}
+Additional Comments: ${formData.get('additionalInfo') || 'None'}
+
+DOCUMENTS UPLOADED:
+- Passport Photos: ${passportPhotos.files.length} files
+- Birth Certificate: ${document.getElementById('birthCertificate').files.length ? 'Yes' : 'No'}
+- Academic Records: ${document.getElementById('academicRecords').files.length ? 'Yes' : 'No'}
+- Recommendation Letter: ${document.getElementById('recommendationLetter').files.length ? 'Yes' : 'No'}
+- Medical Form: ${document.getElementById('medicalForm').files.length ? 'Yes' : 'No'}
+
+Note: This is an online application submission. Please contact the applicant to collect the original documents.
+
+Application submitted on: ${new Date().toLocaleString()}
+      `;
+      
+      // Simulate form submission
+      setTimeout(() => {
+        // Open email client
+        const mailtoLink = `mailto:monsignorbalasecsch@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+        window.open(mailtoLink);
+        
+        // Show success message
+        showFormAlert('Application submitted successfully! Please check your email for confirmation. The admissions office will contact you within 3-5 business days.', 'success');
+        
+        // Reset form
+        document.getElementById('onlineApplicationForm').reset();
+        
+        // Reset button
+        resetSubmitButton();
+        
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 2000);
+      
+      function resetSubmitButton() {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }
+    });
+    
+    // Form validation helpers
+    function showFormAlert(message, type) {
+      const alertBox = document.getElementById('formAlert');
+      alertBox.innerHTML = `
+        <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+          <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-triangle'} me-2"></i>
+          ${message}
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+      `;
+      
+      // Auto-hide after 8 seconds for success messages
+      if (type === 'success') {
+        setTimeout(() => {
+          const alert = alertBox.querySelector('.alert');
+          if (alert) {
+            alert.remove();
+          }
+        }, 8000);
+      }
+    }
+    
+    // File upload validation
+    document.querySelectorAll('input[type="file"]').forEach(input => {
+      input.addEventListener('change', function() {
+        const maxSize = 5 * 1024 * 1024; // 5MB
+        const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'application/pdf'];
+        
+        Array.from(this.files).forEach(file => {
+          if (file.size > maxSize) {
+            showFormAlert(`File "${file.name}" is too large. Maximum size is 5MB.`, 'danger');
+            this.value = '';
+            return;
+          }
+          
+          if (!allowedTypes.includes(file.type)) {
+            showFormAlert(`File "${file.name}" has an invalid format. Please upload JPG, PNG, or PDF files only.`, 'danger');
+            this.value = '';
+            return;
+          }
+        });
+      });
+    });
+    
+    // Phone number formatting
+    document.getElementById('guardianPhone').addEventListener('input', function() {
+      let value = this.value.replace(/\D/g, '');
+      if (value.startsWith('256')) {
+        value = '+' + value;
+      } else if (value.startsWith('0')) {
+        value = '+256' + value.substring(1);
+      } else if (!value.startsWith('+')) {
+        value = '+256' + value;
+      }
+      this.value = value;
+    });
+
+    // Update current year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
+

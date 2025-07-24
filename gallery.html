@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Gallery - Monsignor Bala Secondary School</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Lightbox CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* Enhanced Gallery Styling */
+    .gallery-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 15px;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .gallery-img:hover {
+      transform: scale(1.08) translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    }
+
+    /* Hero Image Styling */
+    .hero-gallery-item {
+      margin-bottom: 2rem;
+    }
+
+    .hero-img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(0,0,0,0.7), rgba(0,123,255,0.3));
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .hero-gallery-item:hover .hero-overlay {
+      opacity: 1;
+    }
+
+    .hero-content {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    /* Gallery Caption Styling */
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.9));
+      color: white;
+      padding: 25px 15px 15px;
+      border-radius: 0 0 15px 15px;
+      opacity: 0;
+      transition: all 0.4s ease;
+      transform: translateY(10px);
+    }
+
+    .gallery-item:hover .gallery-caption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Filter Button Styling */
+    .btn-group .btn {
+      margin: 0 8px 10px 0;
+      border-radius: 25px;
+      padding: 10px 20px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .btn-group .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .btn-group .btn.active {
+      background: linear-gradient(45deg, #007bff, #0056b3);
+      border-color: #007bff;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    /* Category Color Coding */
+    .gallery-item[data-category="facilities"] .gallery-img {
+      border: 3px solid rgba(0,123,255,0.3);
+    }
+
+    .gallery-item[data-category="academics"] .gallery-img {
+      border: 3px solid rgba(40,167,69,0.3);
+    }
+
+    .gallery-item[data-category="students"] .gallery-img {
+      border: 3px solid rgba(23,162,184,0.3);
+    }
+
+    .gallery-item[data-category="sports"] .gallery-img {
+      border: 3px solid rgba(255,193,7,0.3);
+    }
+
+    .gallery-item[data-category="events"] .gallery-img {
+      border: 3px solid rgba(220,53,69,0.3);
+    }
+
+    .gallery-item[data-category="alumni"] .gallery-img {
+      border: 3px solid rgba(108,117,125,0.3);
+    }
+
+    .gallery-item[data-category="community"] .gallery-img {
+      border: 3px solid rgba(102,16,242,0.3);
+    }
+
+    /* Responsive Enhancements */
+    @media (max-width: 768px) {
+      .gallery-img {
+        height: 200px;
+      }
+
+      .hero-content h2 {
+        font-size: 1.5rem;
+      }
+
+      .hero-content p {
+        font-size: 0.9rem;
+      }
+
+      .btn-group .btn {
+        font-size: 0.8rem;
+        padding: 8px 15px;
+        margin: 0 5px 8px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header id="site-header" class="fixed-top">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">MBSS</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="academics.html">Academics</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admissions.html">Admissions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="student-life.html">Student Life</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="alumni.html">Alumni</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="news.html">News & Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item ms-lg-3">
+              <a class="btn btn-primary" href="admissions.html">Apply Now</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero d-flex align-items-center">
+    <div class="overlay"></div>
+    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_20250508_160536.jpg-M3L18aaqfg0YotnmaRhoNQVcUIglMp.jpeg" class="w-100 h-100 object-fit-cover" alt="Photo Gallery">
+    <div class="container position-relative z-1">
+      <h1 class="text-white fw-bold">Photo Gallery</h1>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="py-5 bg-white">
+    <div class="container py-4">
+      <h2 class="fw-bold text-center mb-5">School Life & Events</h2>
+      
+      <!-- Gallery Filter -->
+      <div class="text-center mb-5">
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-outline-primary active" data-filter="all">All</button>
+          <button type="button" class="btn btn-outline-primary" data-filter="facilities">Facilities</button>
+          <button type="button" class="btn btn-outline-primary" data-filter="students">Students</button>
+          <button type="button" class="btn btn-outline-primary" data-filter="alumni">Alumni</button>
+          <button type="button" class="btn btn-outline-primary" data-filter="events">Events</button>
+          <button type="button" class="btn btn-outline-primary" data-filter="sports">Sports</button>
+          <button type="button" class="btn btn-outline-primary" data-filter="academics">Academics</button>
+          <button type="button" class="btn btn-outline-primary" data-filter="community">Community</button>
+        </div>
+      </div>
+      
+      <!-- Gallery Grid -->
+      <div class="row g-4" id="gallery-grid">
+
+        <!-- FEATURED HERO IMAGE -->
+        <div class="col-12 gallery-item" data-category="all">
+          <div class="position-relative hero-gallery-item">
+            <a href="gallery/compound.jpg" data-lightbox="gallery" data-title="MBSS School Compound - Beautiful campus grounds where excellence thrives">
+              <img src="gallery/compound.jpg" class="gallery-img hero-img" alt="School Compound" style="height: 400px; object-fit: cover;">
+              <div class="hero-overlay">
+                <div class="hero-content text-center text-white">
+                  <h2 class="fw-bold mb-3">Welcome to MBSS Gallery</h2>
+                  <p class="lead mb-4">Discover the vibrant life and rich heritage of Monsignor Bala Secondary School</p>
+                  <div class="d-flex justify-content-center gap-3">
+                    <span class="badge bg-primary fs-6 px-3 py-2">150+ Photos</span>
+                    <span class="badge bg-success fs-6 px-3 py-2">7 Categories</span>
+                    <span class="badge bg-warning fs-6 px-3 py-2">40 Years of Memories</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- FACILITIES SECTION -->
+        <!-- School Compound Views -->
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="facilities">
+          <div class="position-relative">
+            <a href="gallery/20250712_150923.jpg" data-lightbox="gallery" data-title="Modern Classroom Facilities - State-of-the-art learning environments">
+              <img src="gallery/20250712_150923.jpg" class="gallery-img" alt="Modern Classrooms">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Modern Classrooms</h5>
+                <p class="small mb-0">State-of-the-art learning spaces</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="facilities">
+          <div class="position-relative">
+            <a href="gallery/20250712_150924.jpg" data-lightbox="gallery" data-title="School Infrastructure Development">
+              <img src="gallery/20250712_150924.jpg" class="gallery-img" alt="School Infrastructure">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Infrastructure</h5>
+                <p class="small mb-0">Continuous development</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="facilities">
+          <div class="position-relative">
+            <a href="gallery/20250712_150944.jpg" data-lightbox="gallery" data-title="Campus Buildings and Facilities">
+              <img src="gallery/20250712_150944.jpg" class="gallery-img" alt="Campus Buildings">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Campus Buildings</h5>
+                <p class="small mb-0">Well-maintained facilities</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="facilities">
+          <div class="position-relative">
+            <a href="gallery/20250712_151832.jpg" data-lightbox="gallery" data-title="Computer Laboratory - Technology Center">
+              <img src="gallery/20250712_151832.jpg" class="gallery-img" alt="Computer Lab">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Computer Lab</h5>
+                <p class="small mb-0">Technology learning center</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="facilities">
+          <div class="position-relative">
+            <a href="gallery/20250712_151840.jpg" data-lightbox="gallery" data-title="Science Laboratory Equipment">
+              <img src="gallery/20250712_151840.jpg" class="gallery-img" alt="Science Lab">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Science Laboratory</h5>
+                <p class="small mb-0">Modern scientific equipment</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="facilities">
+          <div class="position-relative">
+            <a href="gallery/20250712_151846.jpg" data-lightbox="gallery" data-title="Library and Resource Center">
+              <img src="gallery/20250712_151846.jpg" class="gallery-img" alt="Library">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Library</h5>
+                <p class="small mb-0">Knowledge resource center</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- ACADEMICS SECTION -->
+        <!-- Science Competition Winners -->
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="academics">
+          <div class="position-relative">
+            <a href="gallery/20250712_151344.jpg" data-lightbox="gallery" data-title="Regional Science Competition Winners - MBSS Excellence">
+              <img src="gallery/20250712_151344.jpg" class="gallery-img" alt="Science Competition">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Science Competition</h5>
+                <p class="small mb-0">Regional champions</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="academics">
+          <div class="position-relative">
+            <a href="gallery/20250712_151926.jpg" data-lightbox="gallery" data-title="Academic Excellence Recognition Ceremony">
+              <img src="gallery/20250712_151926.jpg" class="gallery-img" alt="Academic Excellence">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Academic Excellence</h5>
+                <p class="small mb-0">Outstanding achievements</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="academics">
+          <div class="position-relative">
+            <a href="gallery/20250717_102419.jpg" data-lightbox="gallery" data-title="Annual Science Fair Exhibition - Innovation Showcase">
+              <img src="gallery/20250717_102419.jpg" class="gallery-img" alt="Science Fair">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Science Fair</h5>
+                <p class="small mb-0">Innovation showcase</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="academics">
+          <div class="position-relative">
+            <a href="gallery/20250717_102427.jpg" data-lightbox="gallery" data-title="Student Science Projects - Creative Solutions">
+              <img src="gallery/20250717_102427.jpg" class="gallery-img" alt="Science Projects">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Science Projects</h5>
+                <p class="small mb-0">Student innovations</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="academics">
+          <div class="position-relative">
+            <a href="gallery/20250717_102428.jpg" data-lightbox="gallery" data-title="Science Exhibition Displays">
+              <img src="gallery/20250717_102428.jpg" class="gallery-img" alt="Science Exhibition">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Science Exhibition</h5>
+                <p class="small mb-0">Student research displays</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="academics">
+          <div class="position-relative">
+            <a href="gallery/20250717_102522.jpg" data-lightbox="gallery" data-title="Student Research Presentations">
+              <img src="gallery/20250717_102522.jpg" class="gallery-img" alt="Research Presentations">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Research Presentations</h5>
+                <p class="small mb-0">Academic presentations</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="academics">
+          <div class="position-relative">
+            <a href="gallery/20250717_102524.jpg" data-lightbox="gallery" data-title="Academic Demonstrations">
+              <img src="gallery/20250717_102524.jpg" class="gallery-img" alt="Academic Demonstrations">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Academic Demonstrations</h5>
+                <p class="small mb-0">Practical learning</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="academics">
+          <div class="position-relative">
+            <a href="gallery/20250717_103154.jpg" data-lightbox="gallery" data-title="Laboratory Practical Sessions">
+              <img src="gallery/20250717_103154.jpg" class="gallery-img" alt="Lab Practicals">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Lab Practicals</h5>
+                <p class="small mb-0">Hands-on learning</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- STUDENTS SECTION -->
+        <!-- Student Leadership and Activities -->
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="students">
+          <div class="position-relative">
+            <a href="gallery/20250721_111727.jpg" data-lightbox="gallery" data-title="Student Leadership Training Program">
+              <img src="gallery/20250721_111727.jpg" class="gallery-img" alt="Student Leadership">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Leadership Training</h5>
+                <p class="small mb-0">Developing future leaders</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="students">
+          <div class="position-relative">
+            <a href="gallery/20250721_135921.jpg" data-lightbox="gallery" data-title="Student Activities Week - Talent Showcase">
+              <img src="gallery/20250721_135921.jpg" class="gallery-img" alt="Student Activities">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Student Activities</h5>
+                <p class="small mb-0">Talent showcase week</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="students">
+          <div class="position-relative">
+            <a href="gallery/20250721_135925.jpg" data-lightbox="gallery" data-title="Student Engagement Activities">
+              <img src="gallery/20250721_135925.jpg" class="gallery-img" alt="Student Engagement">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Student Engagement</h5>
+                <p class="small mb-0">Interactive learning</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="students">
+          <div class="position-relative">
+            <a href="gallery/20250721_135935.jpg" data-lightbox="gallery" data-title="Student Collaboration Projects">
+              <img src="gallery/20250721_135935.jpg" class="gallery-img" alt="Student Collaboration">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Student Collaboration</h5>
+                <p class="small mb-0">Teamwork in action</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="students">
+          <div class="position-relative">
+            <a href="gallery/20250712_151741.jpg" data-lightbox="gallery" data-title="Student Leadership Council">
+              <img src="gallery/20250712_151741.jpg" class="gallery-img" alt="Student Leadership">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Leadership Council</h5>
+                <p class="small mb-0">Student representatives</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="students">
+          <div class="position-relative">
+            <a href="gallery/20250712_151746.jpg" data-lightbox="gallery" data-title="Student Achievement Recognition">
+              <img src="gallery/20250712_151746.jpg" class="gallery-img" alt="Student Achievement">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Student Achievement</h5>
+                <p class="small mb-0">Excellence recognition</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- SPORTS SECTION -->
+        <!-- Inter-House Sports Competitions -->
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="sports">
+          <div class="position-relative">
+            <a href="gallery/20250721_112507.jpg" data-lightbox="gallery" data-title="Inter-House Sports Competition - House Pride">
+              <img src="gallery/20250721_112507.jpg" class="gallery-img" alt="Inter-House Sports">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Inter-House Sports</h5>
+                <p class="small mb-0">House competitions</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="sports">
+          <div class="position-relative">
+            <a href="gallery/20250721_112511.jpg" data-lightbox="gallery" data-title="Team Sports - Red House Champions">
+              <img src="gallery/20250721_112511.jpg" class="gallery-img" alt="Team Sports">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Team Sports</h5>
+                <p class="small mb-0">Red House team</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="sports">
+          <div class="position-relative">
+            <a href="gallery/20250721_112519.jpg" data-lightbox="gallery" data-title="Athletic Competitions">
+              <img src="gallery/20250721_112519.jpg" class="gallery-img" alt="Athletic Competitions">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Athletic Competitions</h5>
+                <p class="small mb-0">Track and field events</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="sports">
+          <div class="position-relative">
+            <a href="gallery/20250721_112523.jpg" data-lightbox="gallery" data-title="Sports Training Sessions">
+              <img src="gallery/20250721_112523.jpg" class="gallery-img" alt="Sports Training">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Sports Training</h5>
+                <p class="small mb-0">Skill development</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="sports">
+          <div class="position-relative">
+            <a href="gallery/20250721_112558.jpg" data-lightbox="gallery" data-title="Athletic Training Sessions">
+              <img src="gallery/20250721_112558.jpg" class="gallery-img" alt="Athletic Training">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Athletic Training</h5>
+                <p class="small mb-0">Preparation sessions</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="sports">
+          <div class="position-relative">
+            <a href="gallery/20250712_151143.jpg" data-lightbox="gallery" data-title="Annual Sports Day Celebrations">
+              <img src="gallery/20250712_151143.jpg" class="gallery-img" alt="Sports Day">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Sports Day</h5>
+                <p class="small mb-0">Annual celebration</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="sports">
+          <div class="position-relative">
+            <a href="gallery/20250721_112606.jpg" data-lightbox="gallery" data-title="Team Building Activities">
+              <img src="gallery/20250721_112606.jpg" class="gallery-img" alt="Team Building">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Team Building</h5>
+                <p class="small mb-0">Unity through sports</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="sports">
+          <div class="position-relative">
+            <a href="gallery/20250721_112634.jpg" data-lightbox="gallery" data-title="Sports Equipment and Facilities">
+              <img src="gallery/20250721_112634.jpg" class="gallery-img" alt="Sports Equipment">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Sports Equipment</h5>
+                <p class="small mb-0">Quality sports gear</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- EVENTS SECTION -->
+        <!-- Cultural Diversity Day -->
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="events">
+          <div class="position-relative">
+            <a href="gallery/20250721_112107.jpg" data-lightbox="gallery" data-title="Cultural Diversity Day Celebration">
+              <img src="gallery/20250721_112107.jpg" class="gallery-img" alt="Cultural Day">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Cultural Day</h5>
+                <p class="small mb-0">Diversity celebration</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Music Festival -->
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="events">
+          <div class="position-relative">
+            <a href="gallery/IMG_20250614_151733_602.jpg" data-lightbox="gallery" data-title="Annual Music Festival Performance">
+              <img src="gallery/IMG_20250614_151733_602.jpg" class="gallery-img" alt="Music Festival">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Music Festival</h5>
+                <p class="small mb-0">Annual performances</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- School Assembly -->
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="events">
+          <div class="position-relative">
+            <a href="gallery/20250712_151529.jpg" data-lightbox="gallery" data-title="Weekly School Assembly">
+              <img src="gallery/20250712_151529.jpg" class="gallery-img" alt="School Assembly">
+              <div class="gallery-caption">
+                <h5 class="mb-1">School Assembly</h5>
+                <p class="small mb-0">Weekly gathering</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Cultural Performances -->
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="events">
+          <div class="position-relative">
+            <a href="gallery/20250721_112117.jpg" data-lightbox="gallery" data-title="Traditional Cultural Performances">
+              <img src="gallery/20250721_112117.jpg" class="gallery-img" alt="Cultural Performances">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Cultural Performances</h5>
+                <p class="small mb-0">Traditional dances</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- More Events -->
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="events">
+          <div class="position-relative">
+            <a href="gallery/IMG_20250614_151837_345.jpg" data-lightbox="gallery" data-title="School Cultural Events">
+              <img src="gallery/IMG_20250614_151837_345.jpg" class="gallery-img" alt="Cultural Events">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Cultural Events</h5>
+                <p class="small mb-0">Student performances</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="events">
+          <div class="position-relative">
+            <a href="gallery/IMG_20250614_152345_533.jpg" data-lightbox="gallery" data-title="Special School Events">
+              <img src="gallery/IMG_20250614_152345_533.jpg" class="gallery-img" alt="Special Events">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Special Events</h5>
+                <p class="small mb-0">Memorable occasions</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="events">
+          <div class="position-relative">
+            <a href="gallery/20250712_151503.jpg" data-lightbox="gallery" data-title="School Celebrations">
+              <img src="gallery/20250712_151503.jpg" class="gallery-img" alt="School Celebrations">
+              <div class="gallery-caption">
+                <h5 class="mb-1">School Celebrations</h5>
+                <p class="small mb-0">Festive moments</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="events">
+          <div class="position-relative">
+            <a href="gallery/20250712_151544.jpg" data-lightbox="gallery" data-title="Award Ceremonies">
+              <img src="gallery/20250712_151544.jpg" class="gallery-img" alt="Award Ceremonies">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Award Ceremonies</h5>
+                <p class="small mb-0">Recognition events</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- ALUMNI SECTION -->
+        <!-- Alumni Reunion 2023 -->
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="alumni">
+          <div class="position-relative">
+            <a href="gallery/20230804_164016.jpg" data-lightbox="gallery" data-title="Alumni Reunion 2023 - Reconnecting with MBSS Family">
+              <img src="gallery/20230804_164016.jpg" class="gallery-img" alt="Alumni Reunion">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Alumni Reunion 2023</h5>
+                <p class="small mb-0">Reconnecting with MBSS</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Alumni Success Stories -->
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="alumni">
+          <div class="position-relative">
+            <a href="gallery/IMG_20230804_151645.jpg" data-lightbox="gallery" data-title="Alumni Professional Success Stories">
+              <img src="gallery/IMG_20230804_151645.jpg" class="gallery-img" alt="Alumni Success">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Alumni Success</h5>
+                <p class="small mb-0">Professional achievements</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Alumni Networking -->
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="alumni">
+          <div class="position-relative">
+            <a href="gallery/IMG_20230804_153434.jpg" data-lightbox="gallery" data-title="Alumni Networking and Mentorship">
+              <img src="gallery/IMG_20230804_153434.jpg" class="gallery-img" alt="Alumni Networking">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Alumni Networking</h5>
+                <p class="small mb-0">Mentorship programs</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- More Alumni Events -->
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="alumni">
+          <div class="position-relative">
+            <a href="gallery/20230804_164034.jpg" data-lightbox="gallery" data-title="Alumni Gathering 2023">
+              <img src="gallery/20230804_164034.jpg" class="gallery-img" alt="Alumni Gathering">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Alumni Gathering</h5>
+                <p class="small mb-0">Class reunions</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="alumni">
+          <div class="position-relative">
+            <a href="gallery/IMG_20230804_154251.jpg" data-lightbox="gallery" data-title="Alumni Professional Development">
+              <img src="gallery/IMG_20230804_154251.jpg" class="gallery-img" alt="Alumni Development">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Professional Development</h5>
+                <p class="small mb-0">Career advancement</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="alumni">
+          <div class="position-relative">
+            <a href="gallery/IMG_20230804_154525.jpg" data-lightbox="gallery" data-title="Alumni Achievement Recognition">
+              <img src="gallery/IMG_20230804_154525.jpg" class="gallery-img" alt="Alumni Achievement">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Alumni Achievement</h5>
+                <p class="small mb-0">Success recognition</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- COMMUNITY SECTION -->
+        <!-- Community Service -->
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="community">
+          <div class="position-relative">
+            <a href="gallery/20241106_105722.jpg" data-lightbox="gallery" data-title="Community Service Initiative">
+              <img src="gallery/20241106_105722.jpg" class="gallery-img" alt="Community Service">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Community Service</h5>
+                <p class="small mb-0">Giving back to society</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Environmental Conservation -->
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="community">
+          <div class="position-relative">
+            <a href="gallery/20250721_113824.jpg" data-lightbox="gallery" data-title="Environmental Conservation Project">
+              <img src="gallery/20250721_113824.jpg" class="gallery-img" alt="Environmental Project">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Environmental Project</h5>
+                <p class="small mb-0">Conservation efforts</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Community Outreach -->
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="community">
+          <div class="position-relative">
+            <a href="gallery/20241106_110021.jpg" data-lightbox="gallery" data-title="Community Outreach Programs">
+              <img src="gallery/20241106_110021.jpg" class="gallery-img" alt="Community Outreach">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Community Outreach</h5>
+                <p class="small mb-0">Helping local communities</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tree Planting -->
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="community">
+          <div class="position-relative">
+            <a href="gallery/20250721_113827.jpg" data-lightbox="gallery" data-title="Tree Planting Initiative">
+              <img src="gallery/20250721_113827.jpg" class="gallery-img" alt="Tree Planting">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Tree Planting</h5>
+                <p class="small mb-0">Environmental stewardship</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- More Community Service -->
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="community">
+          <div class="position-relative">
+            <a href="gallery/20241106_105738.jpg" data-lightbox="gallery" data-title="Community Health Programs">
+              <img src="gallery/20241106_105738.jpg" class="gallery-img" alt="Health Programs">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Health Programs</h5>
+                <p class="small mb-0">Community wellness</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="community">
+          <div class="position-relative">
+            <a href="gallery/20241106_110023.jpg" data-lightbox="gallery" data-title="Community Development Projects">
+              <img src="gallery/20241106_110023.jpg" class="gallery-img" alt="Development Projects">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Development Projects</h5>
+                <p class="small mb-0">Building communities</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="community">
+          <div class="position-relative">
+            <a href="gallery/20241106_112018.jpg" data-lightbox="gallery" data-title="Community Education Programs">
+              <img src="gallery/20241106_112018.jpg" class="gallery-img" alt="Education Programs">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Education Programs</h5>
+                <p class="small mb-0">Knowledge sharing</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="community">
+          <div class="position-relative">
+            <a href="gallery/20241106_112039.jpg" data-lightbox="gallery" data-title="Community Volunteer Work">
+              <img src="gallery/20241106_112039.jpg" class="gallery-img" alt="Volunteer Work">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Volunteer Work</h5>
+                <p class="small mb-0">Student volunteers</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="community">
+          <div class="position-relative">
+            <a href="gallery/20241106_113248.jpg" data-lightbox="gallery" data-title="Community Engagement Activities">
+              <img src="gallery/20241106_113248.jpg" class="gallery-img" alt="Community Engagement">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Community Engagement</h5>
+                <p class="small mb-0">Active participation</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- MORE FACILITIES AND GENERAL IMAGES -->
+        <!-- Additional School Views -->
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="facilities">
+          <div class="position-relative">
+            <a href="gallery/20250712_151012.jpg" data-lightbox="gallery" data-title="School Campus Views">
+              <img src="gallery/20250712_151012.jpg" class="gallery-img" alt="Campus Views">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Campus Views</h5>
+                <p class="small mb-0">Beautiful surroundings</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="facilities">
+          <div class="position-relative">
+            <a href="gallery/20250712_151038.jpg" data-lightbox="gallery" data-title="School Buildings and Architecture">
+              <img src="gallery/20250712_151038.jpg" class="gallery-img" alt="School Architecture">
+              <div class="gallery-caption">
+                <h5 class="mb-1">School Architecture</h5>
+                <p class="small mb-0">Modern design</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="facilities">
+          <div class="position-relative">
+            <a href="gallery/20250712_151049.jpg" data-lightbox="gallery" data-title="Educational Facilities">
+              <img src="gallery/20250712_151049.jpg" class="gallery-img" alt="Educational Facilities">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Educational Facilities</h5>
+                <p class="small mb-0">Learning environments</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="facilities">
+          <div class="position-relative">
+            <a href="gallery/20250712_151114.jpg" data-lightbox="gallery" data-title="School Infrastructure Development">
+              <img src="gallery/20250712_151114.jpg" class="gallery-img" alt="Infrastructure">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Infrastructure</h5>
+                <p class="small mb-0">Ongoing development</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="facilities">
+          <div class="position-relative">
+            <a href="gallery/20250712_151853.jpg" data-lightbox="gallery" data-title="School Amenities">
+              <img src="gallery/20250712_151853.jpg" class="gallery-img" alt="School Amenities">
+              <div class="gallery-caption">
+                <h5 class="mb-1">School Amenities</h5>
+                <p class="small mb-0">Student comfort</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- MORE ACADEMIC ACTIVITIES -->
+        <!-- Student Research -->
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="academics">
+          <div class="position-relative">
+            <a href="gallery/20250717_102522.jpg" data-lightbox="gallery" data-title="Student Research Projects">
+              <img src="gallery/20250717_102522.jpg" class="gallery-img" alt="Student Research">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Student Research</h5>
+                <p class="small mb-0">Independent projects</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Academic Presentations -->
+        <div class="col-md-6 col-lg-4 gallery-item" data-category="academics">
+          <div class="position-relative">
+            <a href="gallery/20250717_102524.jpg" data-lightbox="gallery" data-title="Academic Presentations and Demonstrations">
+              <img src="gallery/20250717_102524.jpg" class="gallery-img" alt="Academic Presentations">
+              <div class="gallery-caption">
+                <h5 class="mb-1">Presentations</h5>
+                <p class="small mb-0">Student demonstrations</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light py-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6">
+          <h5 class="fw-bold mb-4">Monsignor Bala Secondary School</h5>
+          <p class="mb-4">Nurturing excellence, building character, and inspiring future leaders.</p>
+          <div class="d-flex gap-3">
+            <a href="#" class="text-light hover-primary">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-light hover-primary">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-light hover-primary">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h5 class="fw-bold mb-4">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2">
+              <a href="about.html" class="text-light text-decoration-none hover-primary">About Us</a>
+            </li>
+            <li class="mb-2">
+              <a href="academics.html" class="text-light text-decoration-none hover-primary">Academics</a>
+            </li>
+            <li class="mb-2">
+              <a href="admissions.html" class="text-light text-decoration-none hover-primary">Admissions</a>
+            </li>
+            <li class="mb-2">
+              <a href="student-life.html" class="text-light text-decoration-none hover-primary">Student Life</a>
+            </li>
+            <li class="mb-2">
+              <a href="alumni.html" class="text-light text-decoration-none hover-primary">Alumni</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h5 class="fw-bold mb-4">Contact Us</h5>
+          <ul class="list-unstyled">
+            <li class="d-flex mb-3">
+              <i class="fas fa-map-marker-alt text-primary mt-1 me-2"></i>
+              <span>Monsignor Bala Secondary School, Adjumani, Uganda</span>
+            </li>
+            <li class="d-flex mb-3">
+              <i class="fas fa-phone text-primary me-2"></i>
+              <span>+256 XXX XXX XXX</span>
+            </li>
+            <li class="d-flex mb-3">
+              <i class="fas fa-envelope text-primary me-2"></i>
+              <span>info@monsignorbala.ac.ug</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h5 class="fw-bold mb-4">School Hours</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2">
+              <span class="fw-medium">Monday - Friday:</span>
+              <p class="mb-1">8:00 AM - 5:00 PM</p>
+            </li>
+            <li class="mb-2">
+              <span class="fw-medium">Saturday:</span>
+              <p class="mb-1">8:00 AM - 1:00 PM</p>
+            </li>
+            <li class="mb-2">
+              <span class="fw-medium">Sunday:</span>
+              <p class="mb-1">Closed</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-top border-secondary mt-4 pt-4">
+      <div class="container text-center">
+        <p class="small">&copy; <span id="current-year"></span> Monsignor Bala Secondary School. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Lightbox JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+  <!-- Custom JS -->
+  <script src="js/script.js"></script>
+
+  <!-- Gallery Interactive JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Gallery Filter Functionality
+      const filterButtons = document.querySelectorAll('[data-filter]');
+      const galleryItems = document.querySelectorAll('.gallery-item');
+      const galleryGrid = document.getElementById('gallery-grid');
+
+      console.log('🖼️ Gallery initialized with', galleryItems.length, 'images');
+
+      // Filter button click handlers
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const filter = this.getAttribute('data-filter');
+
+          // Update active button
+          filterButtons.forEach(btn => {
+            btn.classList.remove('active');
+            btn.style.transform = 'scale(1)';
+          });
+          this.classList.add('active');
+          this.style.transform = 'scale(1.05)';
+
+          // Add loading effect
+          const originalText = this.textContent;
+          this.textContent = 'Loading...';
+          this.disabled = true;
+
+          setTimeout(() => {
+            this.textContent = originalText;
+            this.disabled = false;
+            this.style.transform = 'scale(1)';
+          }, 500);
+
+          // Filter gallery items with animation
+          galleryItems.forEach((item, index) => {
+            const category = item.getAttribute('data-category');
+
+            setTimeout(() => {
+              if (filter === 'all' || category === filter) {
+                item.style.display = 'block';
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+
+                setTimeout(() => {
+                  item.style.transition = 'all 0.4s ease';
+                  item.style.opacity = '1';
+                  item.style.transform = 'translateY(0)';
+                }, 50);
+              } else {
+                item.style.transition = 'all 0.3s ease';
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(-20px)';
+
+                setTimeout(() => {
+                  item.style.display = 'none';
+                }, 300);
+              }
+            }, index * 30); // Stagger animation
+          });
+
+          // Update gallery count
+          setTimeout(() => {
+            updateGalleryCount(filter);
+          }, 800);
+
+          console.log('🔍 Gallery filtered by:', filter);
+        });
+
+        // Add hover effects to filter buttons
+        button.addEventListener('mouseenter', function() {
+          if (!this.classList.contains('active')) {
+            this.style.transform = 'translateY(-2px)';
+            this.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
+          }
+        });
+
+        button.addEventListener('mouseleave', function() {
+          if (!this.classList.contains('active')) {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = 'none';
+          }
+        });
+      });
+
+      // Update gallery count function
+      function updateGalleryCount(filter) {
+        const visibleItems = document.querySelectorAll('.gallery-item[style*="opacity: 1"]').length;
+        const totalItems = galleryItems.length;
+
+        // Create or update count display
+        let countDisplay = document.getElementById('gallery-count');
+        if (!countDisplay) {
+          countDisplay = document.createElement('div');
+          countDisplay.id = 'gallery-count';
+          countDisplay.className = 'text-center mt-3 text-muted';
+          galleryGrid.parentNode.appendChild(countDisplay);
+        }
+
+        const filterName = filter === 'all' ? 'All Images' :
+                          filter.charAt(0).toUpperCase() + filter.slice(1);
+        countDisplay.innerHTML = `
+          <small>
+            <i class="fas fa-images me-1"></i>
+            Showing ${visibleItems} of ${totalItems} images in "${filterName}"
+          </small>
+        `;
+      }
+
+      // Initialize count
+      updateGalleryCount('all');
+
+      // Enhanced Lightbox Configuration
+      lightbox.option({
+        'resizeDuration': 200,
+        'wrapAround': true,
+        'albumLabel': 'Image %1 of %2 - MBSS Gallery',
+        'fadeDuration': 300,
+        'imageFadeDuration': 300
+      });
+
+      // Add image loading effects
+      const galleryImages = document.querySelectorAll('.gallery-img');
+      galleryImages.forEach((img, index) => {
+        img.addEventListener('load', function() {
+          this.style.opacity = '1';
+          this.style.transform = 'scale(1)';
+        });
+
+        // Add hover effects
+        img.addEventListener('mouseenter', function() {
+          this.style.transform = 'scale(1.05)';
+          this.style.transition = 'transform 0.3s ease';
+        });
+
+        img.addEventListener('mouseleave', function() {
+          this.style.transform = 'scale(1)';
+        });
+
+        // Lazy loading effect
+        setTimeout(() => {
+          img.style.opacity = '0';
+          img.style.transform = 'scale(0.9)';
+          img.style.transition = 'all 0.5s ease';
+
+          setTimeout(() => {
+            img.style.opacity = '1';
+            img.style.transform = 'scale(1)';
+          }, index * 100);
+        }, 100);
+      });
+
+      // Add search functionality
+      function addSearchFeature() {
+        const searchContainer = document.createElement('div');
+        searchContainer.className = 'text-center mb-4';
+        searchContainer.innerHTML = `
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <div class="input-group">
+                <input type="text" id="gallery-search" class="form-control" placeholder="Search images by title or description...">
+                <button class="btn btn-outline-primary" type="button" onclick="clearSearch()">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+
+        const filterSection = document.querySelector('.btn-group').parentNode;
+        filterSection.appendChild(searchContainer);
+
+        // Search functionality
+        const searchInput = document.getElementById('gallery-search');
+        searchInput.addEventListener('input', function() {
+          const searchTerm = this.value.toLowerCase();
+
+          galleryItems.forEach(item => {
+            const title = item.querySelector('h5').textContent.toLowerCase();
+            const description = item.querySelector('.small').textContent.toLowerCase();
+            const altText = item.querySelector('img').alt.toLowerCase();
+
+            if (title.includes(searchTerm) || description.includes(searchTerm) || altText.includes(searchTerm)) {
+              item.style.display = 'block';
+              item.style.opacity = '1';
+            } else {
+              item.style.display = 'none';
+              item.style.opacity = '0';
+            }
+          });
+
+          // Update count for search
+          const visibleItems = document.querySelectorAll('.gallery-item[style*="opacity: 1"]').length;
+          const countDisplay = document.getElementById('gallery-count');
+          if (countDisplay) {
+            countDisplay.innerHTML = `
+              <small>
+                <i class="fas fa-search me-1"></i>
+                Found ${visibleItems} images matching "${searchTerm}"
+              </small>
+            `;
+          }
+        });
+      }
+
+      // Add search feature
+      addSearchFeature();
+
+      // Clear search function
+      window.clearSearch = function() {
+        document.getElementById('gallery-search').value = '';
+        galleryItems.forEach(item => {
+          item.style.display = 'block';
+          item.style.opacity = '1';
+        });
+        updateGalleryCount('all');
+
+        // Reset active filter
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        document.querySelector('[data-filter="all"]').classList.add('active');
+      };
+
+      // Add download functionality
+      function addDownloadFeature() {
+        galleryItems.forEach(item => {
+          const link = item.querySelector('a');
+          const downloadBtn = document.createElement('button');
+          downloadBtn.className = 'btn btn-sm btn-outline-primary position-absolute';
+          downloadBtn.style.cssText = 'top: 10px; right: 10px; z-index: 10; opacity: 0; transition: opacity 0.3s ease;';
+          downloadBtn.innerHTML = '<i class="fas fa-download"></i>';
+          downloadBtn.title = 'Download Image';
+
+          downloadBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const imgSrc = link.getAttribute('href');
+            const imgName = link.getAttribute('data-title').replace(/[^a-z0-9]/gi, '_').toLowerCase();
+
+            const downloadLink = document.createElement('a');
+            downloadLink.href = imgSrc;
+            downloadLink.download = `${imgName}.jpg`;
+            downloadLink.click();
+          });
+
+          item.querySelector('.position-relative').appendChild(downloadBtn);
+
+          // Show download button on hover
+          item.addEventListener('mouseenter', function() {
+            downloadBtn.style.opacity = '1';
+          });
+
+          item.addEventListener('mouseleave', function() {
+            downloadBtn.style.opacity = '0';
+          });
+        });
+      }
+
+      // Add download feature
+      addDownloadFeature();
+
+      // Update current year in footer
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+
+      console.log('✅ Gallery features activated:');
+      console.log('  🔍 Filter buttons with animations');
+      console.log('  🖼️ Lightbox image viewer');
+      console.log('  🔎 Search functionality');
+      console.log('  📥 Download buttons');
+      console.log('  📊 Image counter');
+      console.log('  ✨ Hover effects and transitions');
+    });
+  </script>
+</body>
+</html>
+
+
+
+

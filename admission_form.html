@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admission Form - Monsignor Bala Secondary School</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="text-center mb-4">
+      <img src="MBSS logo.jpg" alt="MBSS Logo" class="mb-3" style="height: 100px;">
+      <h2>Monsignor Bala S.S</h2>
+      <p>P.O.BOX 149, ADJUMANI</p>
+      <p>TEL: +256 773 124 963</p>
+      <p>E-mail: monsignorbalasecsch@gmail.com</p>
+    </div>
+    <div class="text-center mb-4">
+      <img src="public/placeholder-user.jpg" alt="Passport Photo Placeholder" class="img-thumbnail" style="width: 150px; height: 150px;">
+    </div>
+    <h1 class="text-center mb-4">Admission Form</h1>
+    <form id="admissionForm">
+      <h2 class="mb-3">Student Bio Data</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="studentFirstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="studentFirstName" required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="studentLastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="studentLastName" required>
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="studentDob" class="form-label">Date of Birth</label>
+        <input type="date" class="form-control" id="studentDob" required>
+      </div>
+      <div class="mb-3">
+        <label for="studentClass" class="form-label">Class of Study</label>
+        <input type="text" class="form-control" id="studentClass" required>
+      </div>
+
+      <h2 class="mt-5 mb-3">Guardian Information</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="guardianFirstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="guardianFirstName" required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="guardianLastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="guardianLastName" required>
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="guardianEmail" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="guardianEmail" required>
+      </div>
+      <div class="mb-3">
+        <label for="guardianPhone" class="form-label">Phone Number</label>
+        <input type="tel" class="form-control" id="guardianPhone" required>
+      </div>
+
+      <h2 class="mt-5 mb-3">Previous School Information</h2>
+      <div class="mb-3">
+        <label for="previousSchool" class="form-label">Previous School Name</label>
+        <input type="text" class="form-control" id="previousSchool" required>
+      </div>
+      <div class="mb-3">
+        <label for="reasonForLeaving" class="form-label">Reason for Leaving</label>
+        <textarea class="form-control" id="reasonForLeaving" rows="3" required></textarea>
+      </div>
+
+      <h2 class="mt-5 mb-3">Admission Requirements</h2>
+      <ul>
+        <li>2 Passport-sized photos</li>
+        <li>Copy of birth certificate</li>
+        <li>Previous school's report card</li>
+        <li>A recommendation letter from the previous school</li>
+      </ul>
+
+      <button type="submit" class="btn btn-primary mt-4">Submit</button>
+    </form>
+  </div>
+  <script>
+    document.getElementById('admissionForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const studentFirstName = document.getElementById('studentFirstName').value;
+      const studentLastName = document.getElementById('studentLastName').value;
+      const studentDob = document.getElementById('studentDob').value;
+      const studentClass = document.getElementById('studentClass').value;
+      const guardianFirstName = document.getElementById('guardianFirstName').value;
+      const guardianLastName = document.getElementById('guardianLastName').value;
+      const guardianEmail = document.getElementById('guardianEmail').value;
+      const guardianPhone = document.getElementById('guardianPhone').value;
+      const previousSchool = document.getElementById('previousSchool').value;
+      const reasonForLeaving = document.getElementById('reasonForLeaving').value;
+
+      const subject = 'New Admission Application';
+      const body = `
+        Student Name: ${studentFirstName} ${studentLastName}
+        Date of Birth: ${studentDob}
+        Class of Study: ${studentClass}
+
+        Guardian Name: ${guardianFirstName} ${guardianLastName}
+        Guardian Email: ${guardianEmail}
+        Guardian Phone: ${guardianPhone}
+
+        Previous School: ${previousSchool}
+        Reason for Leaving: ${reasonForLeaving}
+      `;
+
+      window.location.href = `mailto:monsignorbalasecsch@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  </script>
+</body>
+</html>

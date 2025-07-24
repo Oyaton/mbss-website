@@ -1,0 +1,11 @@
+# Netlify redirects file
+
+# Redirect old URLs to new ones (if needed)
+/home /index.html 301
+/home.html /index.html 301
+
+# Handle form submissions
+/contact /contact.html 200
+
+# Fallback for SPA-like behavior (optional)
+/* /index.html 404

@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alumni Association - MBSS</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background-color: #d8a7a7 !important;
+    }
+    #site-header {
+      background-color: #87ceeb !important;
+    }
+    .bg-white {
+      background-color: #d8a7a7 !important;
+    }
+    .bg-light {
+      background-color: #e6c3c3 !important;
+    }
+    .card {
+      background-color: #f0d9d9 !important;
+    }
+  </style>
+</head>
+<body style="background-color: #d8a7a7;">
+  <!-- Header -->
+  <header id="site-header" class="fixed-top" style="background-color: #87ceeb;">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">MBSS</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="academics.html">Academics</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admissions.html">Admissions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="student-life.html">Student Life</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="alumni.html">Alumni</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="news.html">News & Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero d-flex align-items-center">
+    <div class="overlay"></div>
+    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_20250508_160536.jpg-M3L18aaqfg0YotnmaRhoNQVcUIglMp.jpeg" class="w-100 h-100 object-fit-cover" alt="Alumni Association">
+    <div class="container position-relative z-1">
+      <h1 class="text-white fw-bold">MBSS Alumni Association</h1>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html" class="text-white">Home</a></li>
+          <li class="breadcrumb-item"><a href="alumni.html" class="text-white">Alumni</a></li>
+          <li class="breadcrumb-item active text-white" aria-current="page">Alumni Association</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="py-5 bg-white">
+    <div class="container py-4">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <h2 class="fw-bold mb-4">Welcome to the MBSS Alumni Association</h2>
+          <p class="text-muted mb-4">
+            The Monsignor Bala Secondary School Alumni Association is a vibrant community of former students 
+            who remain connected to their alma mater and to each other. Founded in 2010, our association 
+            serves as a bridge between the past, present, and future of MBSS.
+          </p>
+          <p class="text-muted mb-4">
+            We are committed to fostering lifelong relationships, supporting current students, and contributing 
+            to the continued growth and excellence of our beloved school.
+          </p>
+          <div class="row g-3">
+            <div class="col-6 col-md-3">
+              <div class="text-center">
+                <h3 class="fw-bold text-primary">500+</h3>
+                <small class="text-muted">Active Members</small>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="text-center">
+                <h3 class="fw-bold text-primary">15</h3>
+                <small class="text-muted">Years Active</small>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="text-center">
+                <h3 class="fw-bold text-primary">25</h3>
+                <small class="text-muted">Countries Represented</small>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="text-center">
+                <h3 class="fw-bold text-primary">50+</h3>
+                <small class="text-muted">Annual Events</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="rounded overflow-hidden shadow">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_20250508_162534~2.jpg-4Kx80wrj5xryzNTaf9JBHG4ZZbpEcg.jpeg" alt="Alumni Association" class="img-fluid w-100">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section class="py-5 bg-light">
+    <div class="container py-4">
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card border-0 shadow h-100">
+            <div class="card-body p-4 text-center">
+              <i class="fas fa-bullseye text-primary fa-3x mb-3"></i>
+              <h4 class="fw-bold mb-3">Our Mission</h4>
+              <p class="text-muted">
+                To maintain strong connections among MBSS alumni, support the school's development, 
+                and provide mentorship and opportunities for current students while fostering a 
+                spirit of giving back to our community.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card border-0 shadow h-100">
+            <div class="card-body p-4 text-center">
+              <i class="fas fa-eye text-primary fa-3x mb-3"></i>
+              <h4 class="fw-bold mb-3">Our Vision</h4>
+              <p class="text-muted">
+                To be a dynamic and influential network of MBSS graduates who actively contribute 
+                to the advancement of education, community development, and the continued excellence 
+                of Monsignor Bala Secondary School.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits of Membership -->
+  <section class="py-5 bg-white">
+    <div class="container py-4">
+      <h2 class="fw-bold text-center mb-5">Benefits of Membership</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="card border-0 shadow h-100">
+            <div class="card-body p-4 text-center">
+              <i class="fas fa-users text-primary fa-3x mb-3"></i>
+              <h5 class="fw-bold mb-3">Networking Opportunities</h5>
+              <p class="text-muted">
+                Connect with fellow alumni across various industries and professions. Build valuable 
+                professional and personal relationships.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card border-0 shadow h-100">
+            <div class="card-body p-4 text-center">
+              <i class="fas fa-calendar-alt text-primary fa-3x mb-3"></i>
+              <h5 class="fw-bold mb-3">Exclusive Events</h5>
+              <p class="text-muted">
+                Access to alumni reunions, professional development workshops, social gatherings, 
+                and special school events.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card border-0 shadow h-100">
+            <div class="card-body p-4 text-center">
+              <i class="fas fa-briefcase text-primary fa-3x mb-3"></i>
+              <h5 class="fw-bold mb-3">Career Support</h5>
+              <p class="text-muted">
+                Job opportunities, career mentorship, professional references, and access to 
+                our alumni career network.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card border-0 shadow h-100">
+            <div class="card-body p-4 text-center">
+              <i class="fas fa-newspaper text-primary fa-3x mb-3"></i>
+              <h5 class="fw-bold mb-3">Alumni Newsletter</h5>
+              <p class="text-muted">
+                Stay updated with school news, alumni achievements, upcoming events, and 
+                opportunities through our quarterly newsletter.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card border-0 shadow h-100">
+            <div class="card-body p-4 text-center">
+              <i class="fas fa-graduation-cap text-primary fa-3x mb-3"></i>
+              <h5 class="fw-bold mb-3">Mentorship Programs</h5>
+              <p class="text-muted">
+                Opportunity to mentor current students or be mentored by senior alumni in 
+                your field of interest.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card border-0 shadow h-100">
+            <div class="card-body p-4 text-center">
+              <i class="fas fa-heart text-primary fa-3x mb-3"></i>
+              <h5 class="fw-bold mb-3">Give Back</h5>
+              <p class="text-muted">
+                Participate in scholarship programs, school development projects, and 
+                community service initiatives.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership Team -->
+  <section class="py-5 bg-light">
+    <div class="container py-4">
+      <h2 class="fw-bold text-center mb-5">Association Leadership</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="card border-0 shadow">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_20250508_162534~2.jpg-4Kx80wrj5xryzNTaf9JBHG4ZZbpEcg.jpeg" class="card-img-top" alt="President" style="height: 250px; object-fit: cover;">
+            <div class="card-body text-center">
+              <h5 class="fw-bold">Sarah Akello</h5>
+              <p class="text-primary mb-2">President</p>
+              <p class="text-muted small">Class of 2005 | Business Executive</p>
+              <p class="text-muted small">Leading strategic initiatives and alumni engagement programs.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card border-0 shadow">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/e69ffaf5902748f09b989f30e126a26c.jpg-8c99ScyFYvhEagc7ShOreM5maj7hYK.jpeg" class="card-img-top" alt="Vice President" style="height: 250px; object-fit: cover;">
+            <div class="card-body text-center">
+              <h5 class="fw-bold">James Okello</h5>
+              <p class="text-primary mb-2">Vice President</p>
+              <p class="text-muted small">Class of 2003 | Education Specialist</p>
+              <p class="text-muted small">Coordinating educational support and mentorship programs.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card border-0 shadow">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG-20241121-WA0051.jpg-IXQFT1Z5txJkOIeaikHCZri6QjOrSm.jpeg" class="card-img-top" alt="Secretary" style="height: 250px; object-fit: cover;">
+            <div class="card-body text-center">
+              <h5 class="fw-bold">Grace Amoding</h5>
+              <p class="text-primary mb-2">Secretary General</p>
+              <p class="text-muted small">Class of 2007 | Communications Manager</p>
+              <p class="text-muted small">Managing communications and member relations.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Membership Registration Form -->
+  <section class="py-5 bg-white">
+    <div class="container py-4">
+      <h2 class="fw-bold text-center mb-5">Join the Alumni Association</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card border-0 shadow">
+            <div class="card-body p-5">
+              <div class="text-center mb-4">
+                <i class="fas fa-user-plus text-primary fa-3x mb-3"></i>
+                <h4 class="fw-bold">Membership Registration</h4>
+                <p class="text-muted">Join our growing community of MBSS alumni</p>
+              </div>
+              
+              <form id="membershipForm">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="firstName" class="form-label">First Name *</label>
+                    <input type="text" class="form-control" id="firstName" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="lastName" class="form-label">Last Name *</label>
+                    <input type="text" class="form-control" id="lastName" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="graduationYear" class="form-label">Graduation Year *</label>
+                    <select class="form-select" id="graduationYear" required>
+                      <option value="">Select Year</option>
+                      <option value="2024">2024</option>
+                      <option value="2023">2023</option>
+                      <option value="2022">2022</option>
+                      <option value="2021">2021</option>
+                      <option value="2020">2020</option>
+                      <option value="2019">2019</option>
+                      <option value="2018">2018</option>
+                      <option value="2017">2017</option>
+                      <option value="2016">2016</option>
+                      <option value="2015">2015</option>
+                      <option value="other">Before 2015</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="email" class="form-label">Email Address *</label>
+                    <input type="email" class="form-control" id="email" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="phone" class="form-label">Phone Number *</label>
+                    <input type="tel" class="form-control" id="phone" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="country" class="form-label">Current Country *</label>
+                    <input type="text" class="form-control" id="country" required>
+                  </div>
+                  <div class="col-12">
+                    <label for="profession" class="form-label">Current Profession/Occupation</label>
+                    <input type="text" class="form-control" id="profession">
+                  </div>
+                  <div class="col-12">
+                    <label for="company" class="form-label">Company/Organization</label>
+                    <input type="text" class="form-control" id="company">
+                  </div>
+                  <div class="col-12">
+                    <label for="interests" class="form-label">Areas of Interest (Select all that apply)</label>
+                    <div class="row g-2 mt-1">
+                      <div class="col-md-4">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="mentorship">
+                          <label class="form-check-label" for="mentorship">Mentorship</label>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="networking">
+                          <label class="form-check-label" for="networking">Networking</label>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="fundraising">
+                          <label class="form-check-label" for="fundraising">Fundraising</label>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="events">
+                          <label class="form-check-label" for="events">Event Planning</label>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="scholarships">
+                          <label class="form-check-label" for="scholarships">Scholarships</label>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="volunteer">
+                          <label class="form-check-label" for="volunteer">Volunteering</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <label for="message" class="form-label">Additional Message (Optional)</label>
+                    <textarea class="form-control" id="message" rows="3" placeholder="Tell us about your achievements, interests, or how you'd like to contribute..."></textarea>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="terms" required>
+                      <label class="form-check-label" for="terms">
+                        I agree to the Alumni Association terms and conditions and consent to receive communications *
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
+                      <i class="fas fa-user-plus me-2"></i>Join Alumni Association
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Information -->
+  <section class="py-5 bg-light">
+    <div class="container py-4">
+      <h2 class="fw-bold text-center mb-5">Get in Touch</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="text-center">
+            <i class="fas fa-envelope text-primary fa-3x mb-3"></i>
+            <h5 class="fw-bold">Email Us</h5>
+            <p class="text-muted">alumni@monsignorbala.ac.ug</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="text-center">
+            <i class="fas fa-phone text-primary fa-3x mb-3"></i>
+            <h5 class="fw-bold">Call Us</h5>
+            <p class="text-muted">+256 773 124 963</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="text-center">
+            <i class="fas fa-map-marker-alt text-primary fa-3x mb-3"></i>
+            <h5 class="fw-bold">Visit Us</h5>
+            <p class="text-muted">MBSS Campus, Adjumani, Uganda</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light py-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6">
+          <h5 class="fw-bold mb-4">Monsignor Bala Secondary School</h5>
+          <p class="mb-4">Nurturing excellence, building character, and inspiring future leaders.</p>
+          <div class="d-flex gap-3">
+            <a href="#" class="text-light hover-primary">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-light hover-primary">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-light hover-primary">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h5 class="fw-bold mb-4">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2">
+              <a href="about.html" class="text-light text-decoration-none hover-primary">About Us</a>
+            </li>
+            <li class="mb-2">
+              <a href="academics.html" class="text-light text-decoration-none hover-primary">Academics</a>
+            </li>
+            <li class="mb-2">
+              <a href="admissions.html" class="text-light text-decoration-none hover-primary">Admissions</a>
+            </li>
+            <li class="mb-2">
+              <a href="student-life.html" class="text-light text-decoration-none hover-primary">Student Life</a>
+            </li>
+            <li class="mb-2">
+              <a href="alumni.html" class="text-light text-decoration-none hover-primary">Alumni</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h5 class="fw-bold mb-4">Contact Us</h5>
+          <ul class="list-unstyled">
+            <li class="d-flex mb-3">
+              <i class="fas fa-map-marker-alt text-primary mt-1 me-2"></i>
+              <span>Monsignor Bala Secondary School, Adjumani, Uganda</span>
+            </li>
+            <li class="d-flex mb-3">
+              <i class="fas fa-phone text-primary me-2"></i>
+              <span>+256 XXX XXX XXX</span>
+            </li>
+            <li class="d-flex mb-3">
+              <i class="fas fa-envelope text-primary me-2"></i>
+              <span>info@monsignorbala.ac.ug</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h5 class="fw-bold mb-4">School Hours</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2">
+              <span class="fw-medium">Monday - Friday:</span>
+              <p class="mb-1">8:00 AM - 5:00 PM</p>
+            </li>
+            <li class="mb-2">
+              <span class="fw-medium">Saturday:</span>
+              <p class="mb-1">8:00 AM - 1:00 PM</p>
+            </li>
+            <li class="mb-2">
+              <span class="fw-medium">Sunday:</span>
+              <p class="mb-1">Closed</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-top border-secondary mt-4 pt-4">
+      <div class="container text-center">
+        <p class="small">&copy; <span id="current-year"></span> Monsignor Bala Secondary School. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="js/script.js"></script>
+  <script>
+    // Update current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Membership form functionality
+    document.getElementById('membershipForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const submitBtn = document.getElementById('submitBtn');
+      const originalText = submitBtn.innerHTML;
+      
+      // Show loading state
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Processing...';
+      submitBtn.disabled = true;
+      
+      // Collect form data
+      const formData = {
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        graduationYear: document.getElementById('graduationYear').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        country: document.getElementById('country').value,
+        profession: document.getElementById('profession').value,
+        company: document.getElementById('company').value,
+        message: document.getElementById('message').value
+      };
+      
+      // Collect interests
+      const interests = [];
+      document.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
+        if (checkbox.id !== 'terms') {
+          interests.push(checkbox.labels[0].textContent);
+        }
+      });
+      formData.interests = interests;
+      
+      // Create email content for alumni association registration
+      const emailSubject = `Alumni Association Registration - ${formData.firstName} ${formData.lastName}`;
+      const emailBody = `
+ALUMNI ASSOCIATION MEMBERSHIP APPLICATION
+
+PERSONAL INFORMATION:
+Name: ${formData.firstName} ${formData.lastName}
+Graduation Year: ${formData.graduationYear}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Country: ${formData.country}
+Profession: ${formData.profession}
+Company: ${formData.company}
+
+INTERESTS:
+${formData.interests.join(', ') || 'None specified'}
+
+ADDITIONAL MESSAGE:
+${formData.message || 'None'}
+
+Application submitted on: ${new Date().toLocaleString()}
+      `;
+      
+      // Open email client
+      const mailtoLink = `mailto:monsignorbalasecsch@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+      window.open(mailtoLink);
+    });
+  </script>
+</body>
+</html>
+
+
